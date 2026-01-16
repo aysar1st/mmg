@@ -1,4 +1,4 @@
-let socket = io("https://mmg-server.onrender.com"); // رابط السيرفر الجديد
+let socket = io("https://mmg-chat.aysar1st.repl.co"); // رابط السيرفر من Replit
 
 let streak = 0;
 
