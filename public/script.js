@@ -1,4 +1,5 @@
-let socket = io(); // لاحقًا سنعدل هذا إذا ربطنا بالسيرفر
+let socket = io("https://mmg-server.onrender.com"); // رابط السيرفر الجديد
+
 let streak = 0;
 
 function register() {
