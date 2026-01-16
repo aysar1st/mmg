@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loginDiv">
+    <h2>تسجيل / دخول</h2>
+    <input id="usernameInput" placeholder="اسم المستخدم">
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+  </div>
+
+  <div id="chatDiv" style="display:none">
+    <h2>الدردشة - ستريكك: <span id="streakCount">0</span></h2>
+    <ul id="messages"></ul>
+    <input id="messageInput" autocomplete="off"><button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
