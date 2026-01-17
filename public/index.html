@@ -1,25 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-  <title>Chat App</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat MMG | Ultra Neon</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div id="loginDiv">
-    <h2>تسجيل / دخول</h2>
-    <input id="usernameInput" placeholder="اسم المستخدم">
-    <button onclick="register()">Register</button>
-    <button onclick="login()">Login</button>
-    <p id="loginMsg"></p>
-  </div>
 
-  <div id="chatDiv" style="display:none">
-    <h2>الدردشة - ستريكك: <span id="streakCount">0</span></h2>
-    <ul id="messages"></ul>
-    <input id="messageInput" autocomplete="off"><button onclick="sendMessage()">Send</button>
-  </div>
+    <div id="loginSection" class="neon-card">
+        <h3>Chat MMG</h3>
+        <div class="input-box">
+            <input id="usernameInput" type="text" required>
+            <span>اسم المستخدم</span>
+        </div>
+        <div class="input-box">
+            <input id="passwordInput" type="password" required>
+            <span>كلمة المرور</span>
+        </div>
+        <button class="glow-btn" onclick="handleLogin()">دخول</button>
+        <p id="loginMsg"></p>
+    </div>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="script.js"></script>
+    <div id="chooseSection" class="neon-card" style="display:none">
+        <h3>مرحباً <span id="userHello"></span></h3>
+        <p style="color: #fff; margin-bottom: 20px;">اختر نوع الغرفة:</p>
+        <button class="glow-btn" onclick="startChat('العامة')" style="margin-bottom: 10px; width: 100%;">الدردشة العامة</button>
+        <button class="glow-btn" onclick="startChat('الخاصة')" style="width: 100%; background: #ff0055; box-shadow: 0 0 10px #ff0055;">الدردشة الخاصة</button>
+    </div>
+
+    <div id="chatSection" class="chat-container" style="display:none">
+        <header>
+            <div class="status-dot"></div>
+            <h3>غرفة: <span id="roomTypeDisplay"></span></h3>
+            <button class="exit-btn" onclick="location.reload()">خروج</button>
+        </header>
+        <div id="chatBox">
+            <ul id="messages">
+                <li class="system-msg">متصل الآن.. أهلاً بك في Chat MMG</li>
+            </ul>
+        </div>
+        <div class="input-area">
+            <input id="messageInput" placeholder="اكتب رسالتك..." autocomplete="off">
+            <button class="send-btn" onclick="handleSendMessage()">ارسل</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
